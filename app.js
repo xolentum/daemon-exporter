@@ -25,12 +25,9 @@ const mempoolSize = new Gauge({ name: 'monerod_tx_mempool', help: 'Number of tra
 const outgoingConnections = new Gauge({ name: 'monerod_connections_outgoing', help: 'Number of outgoing connections' })
 const reward = new Gauge({ name: 'monerod_block_reward', help: 'Last block reward' })
 const txCount = new Gauge({ name: 'monerod_tx_chain', help: 'Number of transactions in total' })
-
 const database_size = new Gauge({ name: 'monerod_database_size', help: 'Current database size on disk' })
 const height = new Gauge({ name: 'monerod_height', help: 'Current block height' })
 const rpc_connections_count = new Gauge({ name: 'monerod_rpc_connections_count', help: 'rpc_connections_count' })
-const update_available = new Gauge({ name: 'monerod_update_available', help: 'update_available' })
-const version = new Gauge({ name: 'monerod_version', help: 'version' })
 
 app.get('/metrics', (req, res) => {
   Promise.all([
@@ -47,8 +44,6 @@ app.get('/metrics', (req, res) => {
       database_size.set(Number(info.database_size))
       height.set(Number(info.height))
       rpc_connections_count.set(Number(info.rpc_connections_count))
-      update_available.set(Boolean(info.update_available))
-      version.set(String(info.version))
 
       res.end(prometheus.register.metrics())
     })
