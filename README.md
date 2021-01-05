@@ -21,7 +21,7 @@
 
 ### License
 
-[BSD 3-Clause License](LICENSE)
+[BSD-3-Clause License](LICENSE)
 
-Copyright © 2020 The Xolentum Project
+Copyright © 2020 The Xolentum Project   
 Copyright © 2018-2019 Excitable Aardvark 
