@@ -19,15 +19,15 @@ const daemon = new Daemon(DAEMON_HOST)
 let getInfo = util.promisify(daemon.getInfo.bind(daemon))
 let getLastBlockHeader = util.promisify(daemon.getLastBlockHeader.bind(daemon))
 
+const height = new Gauge({ name: 'xolentumd_height', help: 'Current block height' })
 const difficulty = new Gauge({ name: 'xolentumd_block_difficulty', help: 'Last block difficulty' })
 const incomingConnections = new Gauge({ name: 'xolentumd_connections_incoming', help: 'Number of incoming connections' })
 const mempoolSize = new Gauge({ name: 'xolentumd_tx_mempool', help: 'Number of transactions in the mempool' })
 const outgoingConnections = new Gauge({ name: 'xolentumd_connections_outgoing', help: 'Number of outgoing connections' })
 const reward = new Gauge({ name: 'xolentumd_block_reward', help: 'Last block reward' })
-const txCount = new Gauge({ name: 'xolentumd_tx_chain', help: 'Number of transactions in total' })
+const txCount = new Gauge({ name: 'xolentumd_tx_chain', help: 'Number of transactions in the network' })
 const database_size = new Gauge({ name: 'xolentumd_database_size', help: 'Current database size on disk' })
-const height = new Gauge({ name: 'xolentumd_height', help: 'Current block height' })
-const rpc_connections_count = new Gauge({ name: 'xolentumd_rpc_connections', help: 'rpc_connections_count' })
+const rpc_connections_count = new Gauge({ name: 'xolentumd_rpc_connections', help: 'Number of RPC connections' })
 
 app.get('/metrics', (req, res) => {
   Promise.all([
