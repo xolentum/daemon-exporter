@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/xolentum/daemon-exporter#readme",
   "dependencies": {
-    "express": "^4.16.2",
+    "express": "^4.17.3",
     "monero-rpc": "^0.4.0",
     "prom-client": "^10.2.2"
   },
